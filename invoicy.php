@@ -37,3 +37,14 @@ function invoicy_module_init_menu_items()
         'href' => admin_url('invoicy')
     ]);
 }
+
+/**
+ * Register activation module hook
+ */
+register_activation_hook(INVOICY_MODULE_NAME, 'invoicy_module_activation_hook');
+
+function invoicy_module_activation_hook()
+{
+    $CI = &get_instance();
+    require_once(__DIR__ . '/install.php');
+}
